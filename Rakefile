@@ -15,10 +15,10 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "monadic"
-  gem.homepage = "http://github.com/foxnewsnetwork/monad"
+  gem.homepage = "http://github.com/foxnewsnetwork/monadic"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Ruby-based implementation of Haskell's monads for the purpose of helping with writing cleaner code.}
+  gem.description = %Q{Monads; too hard to explain here.}
   gem.email = "foxnewsnetwork@gmail.com"
   gem.authors = ["Thomas Chen"]
   # dependencies defined in Gemfile
