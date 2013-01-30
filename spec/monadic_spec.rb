@@ -52,7 +52,27 @@ describe Monadic do
       
 
       describe "#contextify" do
-        pending "Need to have context defined in order to test this macro"
+        let(:klass) do 
+          Class.new { include Monadic }
+        end
+        before :each do
+          class Testable < Monadic::Context; end
+          class Failable < Monadic::Context; end
+          klass.add_context Testable
+          klass.add_context Failable
+        end
+
+        it "should allow me to default contextify to testable since I specified it first" do
+          klass.contextify(klass.new).should be_a Testable
+        end
+
+        it "should allow me to specify options that will get it contextify as something else" do
+          klass.contextify(klass.new, :as => :Failable).should be_a Failable
+        end
+
+        it "should throw an error if we attempt to contextify something entirely inappropriate" do
+          expect { klass.contextify(10) }.to throw_symbol :InappropriateContextifcation
+        end
       end
 
     end
