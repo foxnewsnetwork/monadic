@@ -21,6 +21,7 @@ describe Monadic do
       describe "#setup_context" do
         it "should properly setup the contexts and allow me to retrieve" do
           dog.setup_context context
+          dog.instance_variable_get(:@_monadic_context).keys.should include context.to_s
           dog.get_context(context.to_s.to_sym).should eq context
         end
       end

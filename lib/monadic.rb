@@ -3,7 +3,7 @@ module Monadic
   autoload :Contextable, File.join(File.dirname(__FILE__), "monadic", "contextable")
   autoload :ClassMethods, File.join(File.dirname(__FILE__), "monadic", "class_methods")
   autoload :InstanceMethods, File.join(File.dirname(__FILE__), "monadic", "instance_methods")
-
+  autoload :Helper, File.join(File.dirname(__FILE__), "monadic", "helper")
   def self.included(base)
     base.extend(ClassMethods)
     base.class_exec do
