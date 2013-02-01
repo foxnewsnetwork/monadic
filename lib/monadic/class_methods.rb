@@ -4,7 +4,7 @@ module Monadic
     def contextify( *args )
       params = Monadic::Helper.normalize_arguments *args
       opts = params[:opts]
-      object = params[:args].first
+      object = params[:args].shift
       if object.nil?
         subject = nil
       else
@@ -17,7 +17,7 @@ module Monadic
       context = get_context opts[:as] unless opts[:as].nil?
       context ||= get_context @_first_context_key
       throw :NoSuchContextAvailible if context.nil?
-      context.new subject
+      context.new *params[:args].unshift( subject )
     end
 
     def setup_context( context, opts={} )
